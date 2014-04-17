@@ -14,62 +14,110 @@ namespace Gold_Mining
     public partial class frmMain : Form
     {
 
-        private double gold = 0;
+        
         private double storage = 10;
-        private double power = 0;
         private double consumption = 0;
 
-        private double goldPerHit = 1;
-        private double DiamondChance = 0.01d;
+        private const double xpBaseValue = 0.1;
+        private double xpPerHit = 0;
 
-        private double curStorageLevel = 0;
-        const double maxStorageLevel = 4;
+        private const double goldBaseValue = 1;
+        private double goldPerHit = 0;
+
+        private const double DiamondBaseValue = 0.01;
+        private double DiamondChance = 0;
+
+        
+        
 
         private Dictionary<double, Storage> storages = Storage.GetStorages();
+
+
+        private Character character;
 
         public frmMain()
         {
             InitializeComponent();
         }
 
+        
         private void frmMain_Load(object sender, EventArgs e)
         {
+            character = new Character("Neuer");
+            tbNameOfMine.Text = "Mine of " + character.name;
+
+            CalculateXPPerHit();
+            CalculateGoldPerHit();
+            CalculateDiamondChance();
+
             RefreshDisplay();
+            
         }
+
+        private void CalculateXPPerHit()
+        {
+            xpPerHit = xpBaseValue;
+        }
+
+        private void CalculateGoldPerHit()
+        {
+            goldPerHit = goldBaseValue;
+        }
+
+        private void CalculateDiamondChance()
+        {
+            DiamondChance = DiamondBaseValue;
+        }
+
 
 
         private void RefreshDisplay()
         {
             btnMine.Text = "Mine\n(" + goldPerHit.ToString() + ")";
 
-            consumption = 0;
-            storage = storages[curStorageLevel].storage;
-            consumption += storages[curStorageLevel].consumption;
+            tbLevel.Text = character.level.ToString("0");
+            tbXP.Text = character.XP.ToString("0.00");
+            tbXPPerHit.Text = xpPerHit.ToString();
 
-            tbGold.Text = gold.ToString();
+            consumption = 0;
+            storage = storages[character.storage].storage;
+            consumption += storages[character.storage].consumption;
+
+            tbGold.Text = character.gold.ToString("0");
             tbStorage.Text = storage.ToString();
-            tbPower.Text = power.ToString();
+            tbPower.Text = character.power.ToString("0.00 V");
             tbConsumption.Text = consumption.ToString();
 
+            tbDiamonds.Text = character.diamonds.ToString("0");
             tbDiamondChance.Text = DiamondChance.ToString("0.00")+"%";
 
+            btnSkillsPerks.Text = "Skills / Perks\n(" + character.skillPoints + " / " + character.perkPoints + ")";
 
-            Storage curStorage = storages[curStorageLevel];
-            btnStorage.Text = curStorage.title + "(" + curStorageLevel + ")";
-            if (curStorageLevel < maxStorageLevel) btnStorage.Text += "\n Update (" + storages[curStorageLevel + 1].cost + ")";
+            Storage curStorage = storages[character.storage];
+            btnStorage.Text = curStorage.title + "(" + character.storage + ")";
+            if (character.storage < Storage.maxStorageLevel) btnStorage.Text += "\n Update (" + storages[character.storage + 1].cost + ")";
        
         }
 
         private void btnMine_Click(object sender, EventArgs e)
         {
-            if (gold < storage)
+            if (character.gold < storage)
             {
-                gold = CT.Clamp(gold + goldPerHit, 0, storage);
+                character.gold = CT.Clamp(character.gold + goldPerHit, 0, storage);
+                character.XP += xpPerHit;
+
+                if (character.XP >= (character.level*1000))
+                {
+                    character.XP -= (character.level * 1000);
+                    character.level++;
+                    character.skillPoints++;
+                    character.perkPoints++;
+                }
 
                 Random rnd = new Random();
                 double rndNumber = rnd.NextDouble()/10;
                 Console.WriteLine(rndNumber+ " <= "+DiamondChance+" ???");
-                if (rndNumber <= DiamondChance) Console.WriteLine("FOUND DIAMOND");
+                if (rndNumber <= DiamondChance) { Console.WriteLine("FOUND DIAMOND"); character.diamonds++; }; 
                 RefreshDisplay();
             }
             else
@@ -80,13 +128,13 @@ namespace Gold_Mining
         private void btnStorage_Click(object sender, EventArgs e)
         {
             //TODO: Abfrage ob bauen oder nicht
-            if (curStorageLevel != maxStorageLevel)
+            if (character.storage != Storage.maxStorageLevel)
             {
-                Storage nextStorage = storages[curStorageLevel + 1];
-                if (gold >= nextStorage.cost)
+                Storage nextStorage = storages[character.storage + 1];
+                if (character.gold >= nextStorage.cost)
                 {
-                    curStorageLevel++;
-                    gold = CT.Clamp(gold - nextStorage.cost, 0, gold);
+                    character.storage++;
+                    character.gold = CT.Clamp(character.gold - nextStorage.cost, 0, character.gold);
                 }
                 RefreshDisplay();
             }
@@ -99,6 +147,17 @@ namespace Gold_Mining
             goldPerHit = 100000;
             btnMine_Click(null, null);
             goldPerHit = originGoldPerHit;
+            RefreshDisplay();
+        }
+
+        private void btnSkillsPerks_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheatXP500_Click(object sender, EventArgs e)
+        {
+            character.XP += 500;
             RefreshDisplay();
         }
     }

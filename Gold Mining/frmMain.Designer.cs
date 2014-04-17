@@ -30,6 +30,14 @@
         {
             this.btnMine = new System.Windows.Forms.Button();
             this.groupBoxInfos = new System.Windows.Forms.GroupBox();
+            this.tbXPPerHit = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbXP = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbDiamonds = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbDiamondChance = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnStorage = new System.Windows.Forms.Button();
             this.tbConsumption = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,14 +48,16 @@
             this.tbGold = new System.Windows.Forms.TextBox();
             this.lblGold = new System.Windows.Forms.Label();
             this.btnCheatGold = new System.Windows.Forms.Button();
-            this.tbDiamondChance = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tbNameOfMine = new System.Windows.Forms.TextBox();
+            this.tbLevel = new System.Windows.Forms.TextBox();
+            this.btnSkillsPerks = new System.Windows.Forms.Button();
+            this.btnCheatXP500 = new System.Windows.Forms.Button();
             this.groupBoxInfos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMine
             // 
-            this.btnMine.Location = new System.Drawing.Point(12, 18);
+            this.btnMine.Location = new System.Drawing.Point(12, 60);
             this.btnMine.Name = "btnMine";
             this.btnMine.Size = new System.Drawing.Size(363, 252);
             this.btnMine.TabIndex = 0;
@@ -57,6 +67,14 @@
             // 
             // groupBoxInfos
             // 
+            this.groupBoxInfos.Controls.Add(this.btnSkillsPerks);
+            this.groupBoxInfos.Controls.Add(this.tbLevel);
+            this.groupBoxInfos.Controls.Add(this.tbXPPerHit);
+            this.groupBoxInfos.Controls.Add(this.label6);
+            this.groupBoxInfos.Controls.Add(this.tbXP);
+            this.groupBoxInfos.Controls.Add(this.label7);
+            this.groupBoxInfos.Controls.Add(this.tbDiamonds);
+            this.groupBoxInfos.Controls.Add(this.label1);
             this.groupBoxInfos.Controls.Add(this.tbDiamondChance);
             this.groupBoxInfos.Controls.Add(this.label3);
             this.groupBoxInfos.Controls.Add(this.btnStorage);
@@ -74,6 +92,74 @@
             this.groupBoxInfos.TabIndex = 1;
             this.groupBoxInfos.TabStop = false;
             // 
+            // tbXPPerHit
+            // 
+            this.tbXPPerHit.Location = new System.Drawing.Point(94, 45);
+            this.tbXPPerHit.Name = "tbXPPerHit";
+            this.tbXPPerHit.ReadOnly = true;
+            this.tbXPPerHit.Size = new System.Drawing.Size(100, 20);
+            this.tbXPPerHit.TabIndex = 21;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 48);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "XP / Hit";
+            // 
+            // tbXP
+            // 
+            this.tbXP.Location = new System.Drawing.Point(130, 19);
+            this.tbXP.Name = "tbXP";
+            this.tbXP.ReadOnly = true;
+            this.tbXP.Size = new System.Drawing.Size(64, 20);
+            this.tbXP.TabIndex = 19;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Level / XP";
+            // 
+            // tbDiamonds
+            // 
+            this.tbDiamonds.Location = new System.Drawing.Point(94, 253);
+            this.tbDiamonds.Name = "tbDiamonds";
+            this.tbDiamonds.ReadOnly = true;
+            this.tbDiamonds.Size = new System.Drawing.Size(100, 20);
+            this.tbDiamonds.TabIndex = 17;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 256);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Dimaonds";
+            // 
+            // tbDiamondChance
+            // 
+            this.tbDiamondChance.Location = new System.Drawing.Point(94, 279);
+            this.tbDiamondChance.Name = "tbDiamondChance";
+            this.tbDiamondChance.ReadOnly = true;
+            this.tbDiamondChance.Size = new System.Drawing.Size(100, 20);
+            this.tbDiamondChance.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 282);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "DiamantChance";
+            // 
             // btnStorage
             // 
             this.btnStorage.Location = new System.Drawing.Point(9, 423);
@@ -86,7 +172,7 @@
             // 
             // tbConsumption
             // 
-            this.tbConsumption.Location = new System.Drawing.Point(94, 123);
+            this.tbConsumption.Location = new System.Drawing.Point(94, 201);
             this.tbConsumption.Name = "tbConsumption";
             this.tbConsumption.ReadOnly = true;
             this.tbConsumption.Size = new System.Drawing.Size(100, 20);
@@ -95,7 +181,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 126);
+            this.label5.Location = new System.Drawing.Point(6, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 13);
             this.label5.TabIndex = 9;
@@ -103,7 +189,7 @@
             // 
             // tbPower
             // 
-            this.tbPower.Location = new System.Drawing.Point(94, 97);
+            this.tbPower.Location = new System.Drawing.Point(94, 175);
             this.tbPower.Name = "tbPower";
             this.tbPower.ReadOnly = true;
             this.tbPower.Size = new System.Drawing.Size(100, 20);
@@ -112,7 +198,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 100);
+            this.label4.Location = new System.Drawing.Point(6, 178);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 7;
@@ -120,7 +206,7 @@
             // 
             // tbStorage
             // 
-            this.tbStorage.Location = new System.Drawing.Point(94, 45);
+            this.tbStorage.Location = new System.Drawing.Point(94, 123);
             this.tbStorage.Name = "tbStorage";
             this.tbStorage.ReadOnly = true;
             this.tbStorage.Size = new System.Drawing.Size(100, 20);
@@ -129,7 +215,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 48);
+            this.label2.Location = new System.Drawing.Point(6, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 3;
@@ -137,7 +223,7 @@
             // 
             // tbGold
             // 
-            this.tbGold.Location = new System.Drawing.Point(94, 19);
+            this.tbGold.Location = new System.Drawing.Point(94, 97);
             this.tbGold.Name = "tbGold";
             this.tbGold.ReadOnly = true;
             this.tbGold.Size = new System.Drawing.Size(100, 20);
@@ -146,7 +232,7 @@
             // lblGold
             // 
             this.lblGold.AutoSize = true;
-            this.lblGold.Location = new System.Drawing.Point(6, 22);
+            this.lblGold.Location = new System.Drawing.Point(6, 100);
             this.lblGold.Name = "lblGold";
             this.lblGold.Size = new System.Drawing.Size(29, 13);
             this.lblGold.TabIndex = 0;
@@ -162,28 +248,51 @@
             this.btnCheatGold.UseVisualStyleBackColor = true;
             this.btnCheatGold.Click += new System.EventHandler(this.btnCheatGold_Click);
             // 
-            // tbDiamondChance
+            // tbNameOfMine
             // 
-            this.tbDiamondChance.Location = new System.Drawing.Point(94, 175);
-            this.tbDiamondChance.Name = "tbDiamondChance";
-            this.tbDiamondChance.ReadOnly = true;
-            this.tbDiamondChance.Size = new System.Drawing.Size(100, 20);
-            this.tbDiamondChance.TabIndex = 15;
+            this.tbNameOfMine.Location = new System.Drawing.Point(12, 31);
+            this.tbNameOfMine.Name = "tbNameOfMine";
+            this.tbNameOfMine.ReadOnly = true;
+            this.tbNameOfMine.Size = new System.Drawing.Size(363, 20);
+            this.tbNameOfMine.TabIndex = 3;
+            this.tbNameOfMine.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label3
+            // tbLevel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 178);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "DiamantChance";
+            this.tbLevel.Location = new System.Drawing.Point(94, 19);
+            this.tbLevel.Name = "tbLevel";
+            this.tbLevel.ReadOnly = true;
+            this.tbLevel.Size = new System.Drawing.Size(30, 20);
+            this.tbLevel.TabIndex = 22;
+            this.tbLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnSkillsPerks
+            // 
+            this.btnSkillsPerks.Location = new System.Drawing.Point(9, 367);
+            this.btnSkillsPerks.Name = "btnSkillsPerks";
+            this.btnSkillsPerks.Size = new System.Drawing.Size(185, 50);
+            this.btnSkillsPerks.TabIndex = 12;
+            this.btnSkillsPerks.Text = "Skills / Perks";
+            this.btnSkillsPerks.UseVisualStyleBackColor = true;
+            this.btnSkillsPerks.Click += new System.EventHandler(this.btnSkillsPerks_Click);
+            // 
+            // btnCheatXP500
+            // 
+            this.btnCheatXP500.Location = new System.Drawing.Point(99, 435);
+            this.btnCheatXP500.Name = "btnCheatXP500";
+            this.btnCheatXP500.Size = new System.Drawing.Size(81, 57);
+            this.btnCheatXP500.TabIndex = 4;
+            this.btnCheatXP500.Text = "CHEAT: XP 500";
+            this.btnCheatXP500.UseVisualStyleBackColor = true;
+            this.btnCheatXP500.Click += new System.EventHandler(this.btnCheatXP500_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 504);
+            this.ClientSize = new System.Drawing.Size(589, 501);
+            this.Controls.Add(this.btnCheatXP500);
+            this.Controls.Add(this.tbNameOfMine);
             this.Controls.Add(this.btnCheatGold);
             this.Controls.Add(this.groupBoxInfos);
             this.Controls.Add(this.btnMine);
@@ -193,6 +302,7 @@
             this.groupBoxInfos.ResumeLayout(false);
             this.groupBoxInfos.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -212,6 +322,16 @@
         private System.Windows.Forms.Button btnCheatGold;
         private System.Windows.Forms.TextBox tbDiamondChance;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox tbDiamonds;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbNameOfMine;
+        private System.Windows.Forms.TextBox tbXPPerHit;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbXP;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbLevel;
+        private System.Windows.Forms.Button btnSkillsPerks;
+        private System.Windows.Forms.Button btnCheatXP500;
     }
 }
 

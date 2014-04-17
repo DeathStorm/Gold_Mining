@@ -13,6 +13,7 @@ namespace Gold_Mining
         public double cost = 0;
         public double consumption = 0;
 
+        public const double maxStorageLevel = 4;
 
         public Storage(string title, double storage, double cost, double consumption)
         {
