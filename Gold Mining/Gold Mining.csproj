@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CT_Additions">
-      <HintPath>..\..\KabelTest\CT_Additions\bin\Debug\CT_Additions.dll</HintPath>
+    <Reference Include="CT_Additions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\CT_Additions.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +63,7 @@
     <Compile Include="Skills_Perks.Designer.cs">
       <DependentUpon>Skills_Perks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pickaxe.cs" />
     <Compile Include="Storage.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
