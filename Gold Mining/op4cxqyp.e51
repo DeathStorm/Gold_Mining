@@ -89,7 +89,7 @@ namespace Gold_Mining
             tbConsumption.Text = consumption.ToString();
 
             tbDiamonds.Text = character.diamonds.ToString("0");
-            tbDiamondChance.Text = pickAxes[character.pickAxe].diamondChance.ToString("0.00")+"%";
+            tbDiamondChance.Text = DiamondChance.ToString("0.00")+"%";
 
             btnSkillsPerks.Text = "Skills / Perks\n(" + character.skillPoints + " / " + character.perkPoints + ")";
 
@@ -122,8 +122,8 @@ namespace Gold_Mining
 
                 Random rnd = new Random();
                 double rndNumber = rnd.NextDouble()/10;
-                Console.WriteLine(rndNumber + " <= " + pickAxes[character.pickAxe].diamondChance + " ???");
-                if (rndNumber <= pickAxes[character.pickAxe].diamondChance) { NewMessage("FOUND DIAMOND"); character.diamonds++; }; 
+                Console.WriteLine(rndNumber+ " <= "+DiamondChance+" ???");
+                if (rndNumber <= DiamondChance) { NewMessage("FOUND DIAMOND"); character.diamonds++; }; 
                 RefreshDisplay();
             }
             else
@@ -171,10 +171,10 @@ namespace Gold_Mining
 
         private void btnCheatGold_Click(object sender, EventArgs e)
         {
-            //double originGoldPerHit = goldPerHit;
-            character.gold = CT.Clamp(character.gold + 100000, 0, storages[character.storage].storage); ;
-                //btnMine_Click(null, null);
-            //goldPerHit = originGoldPerHit;
+            double originGoldPerHit = goldPerHit;
+            goldPerHit = 100000;
+            btnMine_Click(null, null);
+            goldPerHit = originGoldPerHit;
             RefreshDisplay();
         }
 

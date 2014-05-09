@@ -30,6 +30,8 @@
         {
             this.btnMine = new System.Windows.Forms.Button();
             this.groupBoxInfos = new System.Windows.Forms.GroupBox();
+            this.btnSkillsPerks = new System.Windows.Forms.Button();
+            this.tbLevel = new System.Windows.Forms.TextBox();
             this.tbXPPerHit = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbXP = new System.Windows.Forms.TextBox();
@@ -49,9 +51,9 @@
             this.lblGold = new System.Windows.Forms.Label();
             this.btnCheatGold = new System.Windows.Forms.Button();
             this.tbNameOfMine = new System.Windows.Forms.TextBox();
-            this.tbLevel = new System.Windows.Forms.TextBox();
-            this.btnSkillsPerks = new System.Windows.Forms.Button();
             this.btnCheatXP500 = new System.Windows.Forms.Button();
+            this.tbMessages = new System.Windows.Forms.TextBox();
+            this.btnPickAxe = new System.Windows.Forms.Button();
             this.groupBoxInfos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +69,7 @@
             // 
             // groupBoxInfos
             // 
+            this.groupBoxInfos.Controls.Add(this.btnPickAxe);
             this.groupBoxInfos.Controls.Add(this.btnSkillsPerks);
             this.groupBoxInfos.Controls.Add(this.tbLevel);
             this.groupBoxInfos.Controls.Add(this.tbXPPerHit);
@@ -91,6 +94,25 @@
             this.groupBoxInfos.Size = new System.Drawing.Size(200, 480);
             this.groupBoxInfos.TabIndex = 1;
             this.groupBoxInfos.TabStop = false;
+            // 
+            // btnSkillsPerks
+            // 
+            this.btnSkillsPerks.Location = new System.Drawing.Point(6, 315);
+            this.btnSkillsPerks.Name = "btnSkillsPerks";
+            this.btnSkillsPerks.Size = new System.Drawing.Size(188, 50);
+            this.btnSkillsPerks.TabIndex = 12;
+            this.btnSkillsPerks.Text = "Skills / Perks";
+            this.btnSkillsPerks.UseVisualStyleBackColor = true;
+            this.btnSkillsPerks.Click += new System.EventHandler(this.btnSkillsPerks_Click);
+            // 
+            // tbLevel
+            // 
+            this.tbLevel.Location = new System.Drawing.Point(94, 19);
+            this.tbLevel.Name = "tbLevel";
+            this.tbLevel.ReadOnly = true;
+            this.tbLevel.Size = new System.Drawing.Size(30, 20);
+            this.tbLevel.TabIndex = 22;
+            this.tbLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbXPPerHit
             // 
@@ -141,7 +163,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 16;
-            this.label1.Text = "Dimaonds";
+            this.label1.Text = "Diamonds";
             // 
             // tbDiamondChance
             // 
@@ -156,17 +178,17 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 282);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 13);
+            this.label3.Size = new System.Drawing.Size(89, 13);
             this.label3.TabIndex = 14;
-            this.label3.Text = "DiamantChance";
+            this.label3.Text = "Diamond-Chance";
             // 
             // btnStorage
             // 
-            this.btnStorage.Location = new System.Drawing.Point(9, 423);
+            this.btnStorage.Location = new System.Drawing.Point(6, 371);
             this.btnStorage.Name = "btnStorage";
-            this.btnStorage.Size = new System.Drawing.Size(185, 50);
+            this.btnStorage.Size = new System.Drawing.Size(188, 50);
             this.btnStorage.TabIndex = 11;
-            this.btnStorage.Text = "Lager";
+            this.btnStorage.Text = "Storage";
             this.btnStorage.UseVisualStyleBackColor = true;
             this.btnStorage.Click += new System.EventHandler(this.btnStorage_Click);
             // 
@@ -183,9 +205,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 204);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.Size = new System.Drawing.Size(68, 13);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Stromverbrauch";
+            this.label5.Text = "Consumption";
             // 
             // tbPower
             // 
@@ -200,9 +222,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 178);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Strom";
+            this.label4.Text = "Power";
             // 
             // tbStorage
             // 
@@ -217,9 +239,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 126);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Lagerkapazität";
+            this.label2.Text = "Storage Capacity";
             // 
             // tbGold
             // 
@@ -257,25 +279,6 @@
             this.tbNameOfMine.TabIndex = 3;
             this.tbNameOfMine.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // tbLevel
-            // 
-            this.tbLevel.Location = new System.Drawing.Point(94, 19);
-            this.tbLevel.Name = "tbLevel";
-            this.tbLevel.ReadOnly = true;
-            this.tbLevel.Size = new System.Drawing.Size(30, 20);
-            this.tbLevel.TabIndex = 22;
-            this.tbLevel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnSkillsPerks
-            // 
-            this.btnSkillsPerks.Location = new System.Drawing.Point(9, 367);
-            this.btnSkillsPerks.Name = "btnSkillsPerks";
-            this.btnSkillsPerks.Size = new System.Drawing.Size(185, 50);
-            this.btnSkillsPerks.TabIndex = 12;
-            this.btnSkillsPerks.Text = "Skills / Perks";
-            this.btnSkillsPerks.UseVisualStyleBackColor = true;
-            this.btnSkillsPerks.Click += new System.EventHandler(this.btnSkillsPerks_Click);
-            // 
             // btnCheatXP500
             // 
             this.btnCheatXP500.Location = new System.Drawing.Point(99, 435);
@@ -286,11 +289,32 @@
             this.btnCheatXP500.UseVisualStyleBackColor = true;
             this.btnCheatXP500.Click += new System.EventHandler(this.btnCheatXP500_Click);
             // 
+            // tbMessages
+            // 
+            this.tbMessages.AcceptsReturn = true;
+            this.tbMessages.Location = new System.Drawing.Point(12, 318);
+            this.tbMessages.Multiline = true;
+            this.tbMessages.Name = "tbMessages";
+            this.tbMessages.ReadOnly = true;
+            this.tbMessages.Size = new System.Drawing.Size(363, 111);
+            this.tbMessages.TabIndex = 5;
+            // 
+            // btnPickAxe
+            // 
+            this.btnPickAxe.Location = new System.Drawing.Point(6, 427);
+            this.btnPickAxe.Name = "btnPickAxe";
+            this.btnPickAxe.Size = new System.Drawing.Size(188, 47);
+            this.btnPickAxe.TabIndex = 23;
+            this.btnPickAxe.Text = "Pickaxe";
+            this.btnPickAxe.UseVisualStyleBackColor = true;
+            this.btnPickAxe.Click += new System.EventHandler(this.btnPickAxe_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(589, 501);
+            this.Controls.Add(this.tbMessages);
             this.Controls.Add(this.btnCheatXP500);
             this.Controls.Add(this.tbNameOfMine);
             this.Controls.Add(this.btnCheatGold);
@@ -332,6 +356,8 @@
         private System.Windows.Forms.TextBox tbLevel;
         private System.Windows.Forms.Button btnSkillsPerks;
         private System.Windows.Forms.Button btnCheatXP500;
+        private System.Windows.Forms.TextBox tbMessages;
+        private System.Windows.Forms.Button btnPickAxe;
     }
 }
 

@@ -171,10 +171,10 @@ namespace Gold_Mining
 
         private void btnCheatGold_Click(object sender, EventArgs e)
         {
-            //double originGoldPerHit = goldPerHit;
+            double originGoldPerHit = goldPerHit;
             character.gold = CT.Clamp(character.gold + 100000, 0, storages[character.storage].storage); ;
-                //btnMine_Click(null, null);
-            //goldPerHit = originGoldPerHit;
+                btnMine_Click(null, null);
+            goldPerHit = originGoldPerHit;
             RefreshDisplay();
         }
 
